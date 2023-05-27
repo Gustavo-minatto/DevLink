@@ -5,7 +5,7 @@
 }
 
 :root{
-  --mobile: url(./assets/mobileDark.jpg) no-repeat top center/cover;
+  --bg-url: url(./assets/mobileDark.jpg) no-repeat top center/cover;
   --tx-color: #FFFFFF;
   --bg-a: rgba(255, 255, 255, 0.1);
   --bd-a: 1px solid rgba(255, 255, 255, 0.5) ;
@@ -17,9 +17,8 @@
   font-size: 62.5%;
 }
 
-
 .theme-light{
-  --mobile: url(./assets/mobileLight.jpg)no-repeat top center/cover;
+  --bg-url: url(./assets/mobileLight.jpg)no-repeat top center/cover;
 
 
   --tx-color: #000000;
@@ -31,10 +30,9 @@
 
 }
 
-
 body{
-  background: var(--mobile);
-
+  background: var(--bg-url);
+  height: 100vh;
 }
 
 body *{
@@ -70,7 +68,6 @@ body *{
   margin: .4rem auto;
 }
 
-
 #switch button{
   cursor: pointer;
 
@@ -85,11 +82,15 @@ body *{
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+  animation: slide-back .2s;
 }
 
 .theme-light #switch button{
-  right: 0;
-  left: initial;
+  animation: slide-in .4s forwards;
+}
+
+#switch button:hover{
+  outline: .8rem solid var(--bg-aHover);
 }
 
 #switch span{
@@ -142,14 +143,12 @@ ul li a:hover{
   border: var(--bd-aHover);
 }
 
-
 #social-links{
   display: flex;
   justify-content: center;
 
   padding: 2.4rem 0;
   font-size: 2.4rem;
-
 }
 
 #social-links a{
@@ -160,9 +159,7 @@ ul li a:hover{
 
   transition: background 0.2s;
   border-radius: 50%;
-
 }
-
 
 #social-links a:hover{
   background: var(--bg-aHover);
@@ -172,4 +169,33 @@ footer{
   padding: 2.4rem 0;
   text-align: center;
   font-size: 1.4rem;
+}
+
+@media (min-width: 700px){
+  :root{
+    --bg-url: url(./assets/desktopDark.jpg)
+  }
+  
+  .theme-light{
+    --bg-url: url(./assets/desktopLight.jpg)
+  }
+}
+
+@keyframes slide-in{
+  from{
+    left: 0;
+  }
+  to{
+    left: 50%;
+  }
+}
+
+@keyframes slide-back{
+  from{
+    left: 50%;  
+  }
+  to{
+    left: 0;
+
+  }
 }
