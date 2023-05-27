@@ -6,10 +6,6 @@
 
 :root{
   --mobile: url(./assets/mobileDark.jpg) no-repeat top center/cover;
-
- /* --desktop-dark: url(./assets/desktopDark.jpg) no-repeat top center/cover;
-  --desktop-light: url(./assets/desktopLight.jpg) no-repeat top center/cover;
-  */
   --tx-color: #FFFFFF;
   --bg-a: rgba(255, 255, 255, 0.1);
   --bd-a: 1px solid rgba(255, 255, 255, 0.5) ;
